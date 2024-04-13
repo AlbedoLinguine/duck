@@ -1,15 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="maintitle">
-        <button className="maintitle">Duck</button>
+      <div className="topcontainer">
+        <h1>Duck!</h1>
+        <img width="180" src="src\assets\duck.png"/>
       </div>
     </>
   )
