@@ -10,6 +10,9 @@ function App() {
         <h1>Duck!</h1>
         <img width="180" src="src\assets\duck.png"/>
       </div>
+      <div className="bodycontainer">
+        Assisting Tools:
+      </div>
     </>
   )
 }
