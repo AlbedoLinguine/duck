@@ -13,6 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Importing Papyrus font */
+@font-face {
+  font-family: 'Papyrus';
+  src: url('path/to/papyrus-font.woff2') format('woff2'), 
+       url('path/to/papyrus-font.woff') format('woff');   
+}
+
+.element {
+  font-family: 'Papyrus', sans-serif;
+}
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -27,6 +39,8 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  overflow-y: hidden; 
+  overflow-x: hidden;
 }
 
 h1 {
