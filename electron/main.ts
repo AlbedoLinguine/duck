@@ -25,14 +25,26 @@ function createWindow() {
     maxHeight: 600,
     minHeight: 600,
     minWidth: 750,
+    fullscreenable: false,
+    
+
     
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: false,
+            sandbox: false,
+            webviewTag: true,
+            plugins: true,
+            contextIsolation: true
     },
   })
   
-  win.setMenu(null);
+  // win.setMenu(null);
+  win.on('maximize', () => {
+    win?.unmaximize()
+  });
 
+  win.setFullScreenable(false);
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {
     win?.webContents.send('main-process-message', (new Date).toLocaleString())

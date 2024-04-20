@@ -1,8 +1,10 @@
-import { defineConfig } from 'vite'
+import { UserConfig, defineConfig } from 'vite'
 import path from 'node:path'
 import electron from 'vite-plugin-electron/simple'
 import react from '@vitejs/plugin-react'
 import tsconfigPaths from "vite-tsconfig-paths";
+import CSP from "vite-plugin-csp";
+
 
 // https://vitejs.dev/config/
 export default defineConfig({

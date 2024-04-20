@@ -40,6 +40,16 @@
   position: absolute;
 }
 
+.inputcontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.messagecontainer {
+  bottom: 0%;
+  position:absolute;
+}
+
 
 .maintitle {
   color: rgb(38, 76, 38);
