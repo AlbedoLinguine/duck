@@ -39,7 +39,7 @@ function createWindow() {
     },
   })
   
-  // win.setMenu(null);
+  win.setMenu(null);
   win.on('maximize', () => {
     win?.unmaximize()
   });
