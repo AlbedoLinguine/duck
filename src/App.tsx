@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
-import { letschat } from './chatgpt';
+import { letschat } from './components/chatgpt';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -8,6 +8,8 @@ function App() {
   const [key, setKey] = useState("");
   const [current, setCurrent] = useState("");
   const [gpt4, setGPT4] = useState(false);
+  const [button, useButton] = useState(false);
+  const [speedtest, setSpeedtest] = useState(false);
 
   function chat(message: string) {
     const msgs = [...messages];
@@ -32,14 +34,30 @@ function App() {
         <h1>Duck!</h1>
         <img width="180" src="src\assets\duck.png" />
       </div>
+      <div className="namecontainer">
+        <h2>Made By: AlbedoLinguine</h2>
+      </div>
+
       <div className="bodycontainer">
         <div>
           {messages.map((m) => (<div style={{ display: 'block' }}>
             {m.role}: {m.content}
           </div>))}
         </div>
-        <button onClick={useGPT4}><img width="30" src="src\assets\chatgpt logo.webp" /></button>
-        
+        <div className="buttoncontainer">
+        {button === false && <><button onClick={useGPT4}><img width="30" src="src\assets\chatgpt logo.webp" /></button>
+        <button onClick={useSpeedtest}><img width="30" src="src\assets\speedguage.png"></img></button></> }
+        {button === true && <><button onClick={setButtons} className="backbutton" ><img width="30" src="src\assets\back.svg" className="spin"></img></button></>}
+        </div>
+
+        {speedtest && <>
+        <div className="inputcontainer">
+          <div className="columncontainer">
+          <h3 className="speedtestTitle">The Offical Duck Branded Speedtest</h3>
+          </div>
+        </div>
+        </>}
+
         {gpt4 && <><div className="inputcontainer">
           <p>API Key Here {"-->"}</p><input value={key} onChange={(e) => setKey(e.target.value)}></input>
         </div>
@@ -52,10 +70,26 @@ function App() {
 
 
   function useGPT4(){
-    if (!gpt4) {setGPT4(true)}
-      else {setGPT4(false)}
+    if (gpt4) {setGPT4(false)}
+      else {setGPT4(true); useButton(true)}
+    }
+  
+    function useSpeedtest(){
+      if (speedtest) {setSpeedtest(false)}
+      else {setSpeedtest(true); useButton(true)}
+    }
+
+  function setButtons(){
+    if(button){useButton(false); // add new buttons here to make them disappear
+       setSpeedtest(false);
+       setGPT4(false);
+      }
+      else{useButton(true)}
+    }
   }
-}
+  
+  
+
 
 
 export default App

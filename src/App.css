@@ -29,6 +29,21 @@
   font-family: 'Papyrus', sans-serif;
 }
 
+.speedtestTitle {
+  font-family: 'Papyrus', sans-serif;
+}
+
+.columncontainer {
+  display:flex;
+  justify-content: column;
+}
+
+.namecontainer {
+  right: 0;
+  position:absolute;
+  margin-right: 60px;
+}
+
 .bodycontainer  {
   display: flex;
   flex-direction: column;
@@ -50,6 +65,33 @@
   position:absolute;
 }
 
+.backbutton {
+  background-color: transparent;
+  border-radius: 25px;
+  transform: rotateX(180deg);
+}
+.backbutton:hover {
+  border-color: red;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .spin {
+    animation: spin infinite 5s linear;
+  }
+}
+
+.buttoncontainer {
+  display:flex;
+  justify-content: row;
+}
 
 .maintitle {
   color: rgb(38, 76, 38);
@@ -60,17 +102,4 @@
   border-radius: 30px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
