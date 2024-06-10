@@ -10,6 +10,7 @@ function App() {
   const [gpt4, setGPT4] = useState(false);
   const [button, useButton] = useState(false);
   const [speedtest, setSpeedtest] = useState(false);
+  const [slots, setSlots] = useState(false);
 
   function chat(message: string) {
     const msgs = [...messages];
@@ -46,8 +47,10 @@ function App() {
         </div>
         <div className="buttoncontainer">
         {button === false && <><button onClick={useGPT4}><img width="30" src="src\assets\chatgpt logo.webp" /></button>
-        <button onClick={useSpeedtest}><img width="30" src="src\assets\speedguage.png"></img></button></> }
+        <button onClick={useSpeedtest}><img width="30" src="src\assets\speedguage.png"></img></button>
+        <button onClick={useSlots}><img width="30" src="src\assets\gamble.png"></img></button></>  }
         {button === true && <><button onClick={setButtons} className="backbutton" ><img width="30" src="src\assets\back.svg" className="spin"></img></button></>}
+        
         </div>
 
         {speedtest && <>
@@ -78,11 +81,16 @@ function App() {
       if (speedtest) {setSpeedtest(false)}
       else {setSpeedtest(true); useButton(true)}
     }
+    function useSlots(){
+      if (speedtest) {setSlots(false)}
+      else {setSlots(true); useButton(true)}
+    }
 
   function setButtons(){
     if(button){useButton(false); // add new buttons here to make them disappear
        setSpeedtest(false);
        setGPT4(false);
+       setSlots(false);
       }
       else{useButton(true)}
     }
