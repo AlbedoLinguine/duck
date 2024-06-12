@@ -66,6 +66,13 @@ function App() {
         </div>
         <input value={current} onChange={(e) => setCurrent(e.target.value)}></input>
         <button onClick={() => chat(current)}>Chat {":)"}</button> </>}
+
+        {slots && <> <div className="inputcontainer">
+          <h4>"Can't win without trying"</h4>
+          
+          </div> 
+          </>}
+
       </div>
     </>
   
